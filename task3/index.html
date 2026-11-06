@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Список задач с добавлением, удалением и фильтрацией.">
+  <title>Список задач — лабораторная №3</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#task-input">К добавлению задачи</a>
+  <nav class="navigation" aria-label="Навигация">
+    <a href="../index.html">← К лабораторным</a>
+  </nav>
+
+  <main class="workspace">
+    <h1>Список задач</h1>
+    <p class="intro">Добавляйте задачи и отмечайте выполненные.</p>
+
+    <form id="task-form" class="task-form" novalidate>
+      <label for="task-input">Новая задача</label>
+      <div class="input-row">
+        <input id="task-input" name="task" type="text" placeholder="Что нужно сделать?" autocomplete="off" aria-describedby="task-hint form-error">
+        <button class="add-button" type="submit">Добавить</button>
+      </div>
+      <p id="task-hint" class="hint">Можно добавить задачу клавишей Enter.</p>
+      <p id="form-error" class="form-error" role="alert" hidden>Введите текст задачи.</p>
+    </form>
+
+    <section class="tasks-section" aria-labelledby="list-heading">
+      <h2 id="list-heading">Мои задачи</h2>
+      <div class="counters" aria-live="polite" aria-atomic="true">
+        <span>Осталось: <strong id="remaining-count">0</strong></span>
+        <span>Выполнено: <strong id="completed-count">0</strong></span>
+      </div>
+      <div class="filters" role="group" aria-label="Показать задачи">
+        <button type="button" data-filter="all" aria-pressed="true">Все</button>
+        <button type="button" data-filter="active" aria-pressed="false">Активные</button>
+        <button type="button" data-filter="completed" aria-pressed="false">Завершённые</button>
+      </div>
+
+      <ul id="task-list" class="task-list" aria-label="Список задач"></ul>
+      <p id="empty-state" class="empty-state">Здесь пока нет задач.</p>
+      <p id="action-status" class="visually-hidden" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+</body>
+</html>
