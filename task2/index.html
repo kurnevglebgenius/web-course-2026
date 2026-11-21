@@ -8,17 +8,18 @@
   <title>Лист — растения для вашего пространства</title>
   <link rel="icon" href="img/leaf.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script src="menu.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">К содержимому</a>
 
   <header class="site-header container">
     <a class="brand" href="#top" aria-label="Лист — в начало страницы">лист.</a>
-    <nav class="desktop-nav" aria-label="Основная навигация">
+    <button class="menu-indicator" type="button" aria-expanded="false" aria-controls="site-menu">Меню <span aria-hidden="true">☰</span></button>
+    <nav class="desktop-nav" id="site-menu" aria-label="Основная навигация">
       <a href="#services">Услуги</a>
       <a href="#contact">Связаться с нами</a>
     </nav>
-    <span class="menu-indicator">Меню <span aria-hidden="true">☰</span></span>
   </header>
 
   <main class="site-main" id="main">

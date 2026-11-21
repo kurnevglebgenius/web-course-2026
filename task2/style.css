@@ -39,10 +39,11 @@ a:hover, button:hover { opacity: 0.7; }
 .container { width: calc(100% - 40px); max-width: 1120px; margin-inline: auto; }
 .skip-link { position: absolute; top: 8px; left: 20px; padding: 8px 16px; background: var(--paper); transform: translateY(-160%); }
 .skip-link:focus { transform: translateY(0); }
-.site-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 88px; border-bottom: 1px solid var(--line); }
+.site-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; min-height: 88px; border-bottom: 1px solid var(--line); }
 .brand { font-size: 36px; font-weight: bold; letter-spacing: -2px; }
-.desktop-nav { display: none; align-items: center; gap: 32px; }
-.menu-indicator { display: flex; align-items: center; gap: 12px; min-height: 44px; }
+.desktop-nav { display: none; flex-direction: column; width: 100%; gap: 8px; padding-bottom: 16px; }
+.desktop-nav.is-open { display: flex; }
+.menu-indicator { display: flex; align-items: center; gap: 12px; padding: 8px; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
 .menu-indicator span { font-size: 22px; }
 .site-main {
   display: grid;
@@ -95,11 +96,9 @@ textarea { min-height: 120px; resize: vertical; }
 .site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding-block: 24px; border-top: 1px solid var(--line); }
 .site-footer p { font-size: 14px; color: var(--muted); }
 
-/* Планшет: навигация и колонки появляются от 768 px. */
+/* Планшет: колонки появляются от 768 px. */
 @media (min-width: 768px) {
   .container { width: calc(100% - 80px); }
-  .desktop-nav { display: flex; }
-  .menu-indicator { display: none; }
   .hero { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
   .hero-art { height: 360px; }
   .service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -108,6 +107,8 @@ textarea { min-height: 120px; resize: vertical; }
 
 /* Широкий экран: увеличиваем свободное место и заголовок. */
 @media (min-width: 1200px) {
+  .menu-indicator { display: none; }
+  .desktop-nav { display: flex; flex-direction: row; align-items: center; width: auto; gap: 32px; padding: 0; }
   h1 { font-size: 60px; }
   .site-main { gap: 80px; padding-top: 56px; }
   .hero { gap: 64px; }
